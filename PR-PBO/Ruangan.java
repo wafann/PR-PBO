@@ -29,13 +29,14 @@ public class Ruangan {
         // init pintu, kunci dan roti.
         objPintu = new ItemGaBisaDiambil("Pintu");
         objNPC = new Npc("Orang");
-        objRoti  = new ItemBisaDiambil("Kunci");
+        objRoti  = new ItemBisaDiambil("Roti");
         objRoti.setDeskripsi("Roti rasa coklat dalam bungkusan plastik");
         objRoti.setObjRuangan(this);
 
         //tambah item ke array
         arrItem.add(objRoti);
         arrItem.add(objPintu);
+        arrItem.add(objNPC);
     }
 
     //aksi yang dapat dilakukan di ruangan
@@ -75,14 +76,14 @@ public class Ruangan {
 //        }
         
         // aksi2 NPC
-        urutPil++;
-        subPil = 0;
-        int pilNPC  = urutPil; //catat untuk pintu
-        System.out.println("NPC");
-        for (String strPil:objNPC.getAksi()) {
-            subPil++;
-            System.out.printf("%d%d. %s %n", urutPil, subPil, strPil);
-        }
+//        urutPil++;
+//        subPil = 0;
+//        int pilNPC  = urutPil; //catat untuk pintu
+//        System.out.println("NPC");
+//        for (String strPil:objNPC.getAksi()) {
+//            subPil++;
+//            System.out.printf("%d%d. %s %n", urutPil, subPil, strPil);
+//        }
 
         System.out.print("Pilihan anda?");
         String strPil = sc.next();
@@ -94,13 +95,13 @@ public class Ruangan {
         subPil     =  Integer.parseInt(strPil.substring(1,2)); //ambil digit kedua, asumsikan jumlah tidak lebih dari 10
 
         //tdk perlu if spt ini kalau sudah menggunakan inheritance
-        if (pil==pilNPC) {
-            objNPC.prosesAksi(subPil);
-        } else {
+//        if (pil==pilNPC) {
+//            objNPC.prosesAksi(subPil);
+//        } else {
             //item
             Objek objItemPilih = arrItem.get(pil-1);
             objItemPilih.prosesAksi(subPil); //aksi item
-        }
+//        }
 
     }
 
